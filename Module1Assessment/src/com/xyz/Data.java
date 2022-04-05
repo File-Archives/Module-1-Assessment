@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import reference.templates.STATUS;
+import reference.templates.TYPE;
+
 
 public class Data {
 	
@@ -50,6 +53,21 @@ public class Data {
 		java.sql.Date date = new java.sql.Date(milliseconds);
 		String dateString = String.valueOf(date);
 		return dateString;
+	}
+	
+	public static STATUS generateAccountStatus() {
+		int pick = new Random().nextInt(STATUS.values().length);
+		return STATUS.values()[pick];
+	}
+
+	public static TYPE generateAccountType() {
+		/*
+		 * https://howtodoinjava.com/java/enum/enum-tutorial/
+		 * https://www.geeksforgeeks.org/enum-in-java/
+		 * https://stackoverflow.com/questions/1972392/pick-a-random-value-from-an-enum
+		 */
+		int pick = new Random().nextInt(TYPE.values().length);
+		return TYPE.values()[pick];
 	}
 	
 }
